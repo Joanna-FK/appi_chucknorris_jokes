@@ -2,8 +2,6 @@ package pl.javagdy4.api.chucknorrisjokes;
 
 import java.util.Optional;
 
-;
-
 
 public enum JokesCategory {
 
@@ -36,7 +34,6 @@ public enum JokesCategory {
     public static Optional<JokesCategory> parse(String input) {
         if (input.toUpperCase().contains("random")) {
             return Optional.of(JokesCategory.RANDOM);
-
         } else if (input.toUpperCase().contains("animal")) {
             return Optional.of(JokesCategory.ANIMAL);
         } else if (input.toUpperCase().contains("carrer")) {

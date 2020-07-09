@@ -11,4 +11,6 @@ public class ChuckNorrisJokesParameters {
 
     private String jokesCategory;
 
+    public void setJokesCategory(JokesCategory jokesCategory) {
+    }
 }

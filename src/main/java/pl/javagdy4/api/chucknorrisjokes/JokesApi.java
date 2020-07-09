@@ -36,9 +36,7 @@ public class JokesApi {
             } else {
                 log.error("Error: " + response.statusCode());
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return new ArrayList<>();
@@ -46,6 +44,14 @@ public class JokesApi {
     }
 
     private String prepareRequestURL(ChuckNorrisJokesParameters parameters) {
-        return API_CHUCK_NORRIS_JOKES;
+        if (parameters.getJokesCategory().equalsIgnoreCase("random")) {
+            return API_CHUCK_NORRIS_JOKES
+                    .replaceAll("random?category=\\{jokes category\\}", parameters.getJokesCategory());
+        } else {
+            return API_CHUCK_NORRIS_JOKES
+                    .replaceAll("\\{jokes category\\}", parameters.getJokesCategory());
+        }
     }
+
+
 }
